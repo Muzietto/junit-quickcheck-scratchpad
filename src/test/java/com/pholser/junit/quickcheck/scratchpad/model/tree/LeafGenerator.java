@@ -10,8 +10,8 @@ public class LeafGenerator extends Generator<Leaf> {
     }
 
     @Override public Leaf generate(SourceOfRandomness random, GenerationStatus status) {
-        return new Leaf(
-            gen().type(String.class).generate(random, status));
+        return new Leaf("random"
+            /*gen().type(String.class).generate(random, status)*/);
     }
 
     @Override public boolean canRegisterAsType(Class<?> type) {
