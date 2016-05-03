@@ -13,6 +13,5 @@ import static java.lang.annotation.RetentionPolicy.*;
 @GeneratorConfiguration
 public @interface Depth {
     int min() default 0;
-
     int max();
 }

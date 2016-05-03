@@ -29,11 +29,12 @@ public class NodeGenerator extends Generator<Node> {
             );
         }
 
-        Generator<Tree> subtree = gen().oneOf(Node.class, Leaf.class, Empty.class);
-        status.setValue(TreeKeys.DEPTH, depth - 1);
+        Generator<Tree> lsubtree = gen().oneOf(Node.class, Leaf.class, Empty.class);
+        Generator<Tree> rsubtree = gen().oneOf(Node.class, Leaf.class, Empty.class);
+        status.setValue(TreeKeys.DEPTH, new Integer(depth - 1));
         return new Node(
-            subtree.generate(random, status),
-            subtree.generate(random, status)
+            lsubtree.generate(random, status),
+            rsubtree.generate(random, status)
         );
     }
 

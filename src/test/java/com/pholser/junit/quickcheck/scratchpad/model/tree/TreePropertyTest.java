@@ -14,10 +14,8 @@ import static org.junit.Assert.*;
 
 @RunWith(JUnitQuickcheck.class)
 public class TreePropertyTest {
-    @Property public void deepestLeafConstrained(
-        @From(TreeMaker.class)
-        @Depth(min = 10, max = 10)
-        Tree t) {
+    @Property
+    public void deepestLeafConstrained(@From(TreeMaker.class) @Depth(min = 8, max = 10) Tree t) {
 
         TreeDeepestLeafVisitor visitor = new TreeDeepestLeafVisitor();
 
@@ -27,10 +25,8 @@ public class TreePropertyTest {
         assertThat(result.getValue(), lessThanOrEqualTo(10));
     }
 
-    @Property public void depthConstrained(
-        @From(TreeMaker.class)
-        @Depth(min = 10, max = 10)
-        Tree t) {
+    @Property
+    public void depthConstrained(@From(TreeMaker.class) @Depth(min = 6, max = 10) Tree t) {
 
         TreeDepthVisitor visitor = new TreeDepthVisitor();
 
